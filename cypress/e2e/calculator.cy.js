@@ -56,5 +56,12 @@ describe("Calculator", () => {
     cy.get('#operator-equals').click();
     cy.get('.display').should('contain', '9801')
   })
-    
+  
+  it('should be able to divide by zero', () => {
+    cy.get('#number8').click();
+    cy.get('#operator-divide').click();
+    cy.get('#number0').click();
+    cy.get('#operator-equals').click();
+    cy.get('.display').should('contain', 'Division Error')
+  })
 })
